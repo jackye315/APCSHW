@@ -124,12 +124,12 @@ public class SuperArray{
     }
     public Object get(int index){
 	if (index>data.length){
-	    return "Error, index too big!\nnull";
-	    // return "too bad";
+	    throw new IndexOutOfBoundsException();
+	   
 	}
-	else{
+	
             return data[index];
-	}
+	
 
     }
     public void set1 (int index, Object e){
@@ -137,20 +137,20 @@ public class SuperArray{
     }
     public Object set2(int index, Object o){
 	if (index>data.length){
-	    return "Error, index too big! \nnull";
+	     throw new IndexOutOfBoundsException();
 	}
-	else{
+
         Object x=data[index];
 	data[index]=o;
 	return "Being Replaced: "+x;
-	}
+	
 
     }
     public Object remove(int index){
 	if (index>data.length){
-            return "Error, index too big! \nnull";
+            throw new IndexOutOfBoundsException();
 	}
-	else{
+       
             int x=index;
 	    int y=0;
 	    newdata=new Object [data.length-1];
@@ -165,6 +165,6 @@ public class SuperArray{
 	    }
 	    data=newdata;
 	    return testdata[index];
-	}
+	
     }
 }

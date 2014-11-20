@@ -55,7 +55,7 @@ public class WordGrid{
      *or there are overlapping letters that do not match, then false is returned.
      */
     public boolean addWordHorizontal(String word,int row, int col){
-	if (word.length()<data[row].length-col+1){
+	if (word.length()<data[row].length-col){
 	    int x=col;
 	    int y=0;
 	    while(y<word.length()){
@@ -74,6 +74,31 @@ public class WordGrid{
 	}
 	return true;
     }
+
+    public boolean addWordHorizontalleft(String word,int row, int col){
+	if (word.length()<col+1){
+	    int x=col;
+	    int y=0;
+	    while(y<word.length()){
+		if(data[row][x]==' ' || data[row][x]==word.charAt(y)){
+		data[row][x]=word.charAt(y);
+		y=y+1;
+		x=x-1;
+		}
+		else{
+		    return false;
+		}
+	    }
+	}
+	else{
+	    return false;
+	}
+	return true;
+    }
+
+
+
+
     public boolean addWordVertical(String word, int row, int col){
 	if (word.length()<data.length-row+1){
 	    int x=row;
@@ -142,6 +167,7 @@ public class WordGrid{
 	    
 	    a.addWordDiagonal("Hi", 2, 0);
 	    a.addWordVertical("Yo",0,3);
+	    a.addWordHorizontalleft("YA",0,3);
 	    System.out.println(a.toString());
 	
     }

@@ -167,6 +167,7 @@ public class WordGrid{
 	    
 	    a.addWordDiagonal("Hi", 2, 0);
 	    a.addWordVertical("Yo",0,3);
+
 	    a.addWordHorizontalleft("YA",0,3);
 	    System.out.println(a.toString());
 	

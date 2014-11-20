@@ -74,6 +74,55 @@ public class WordGrid{
 	}
 	return true;
     }
+    public boolean addWordVertical(String word, int row, int col){
+	if (word.length()<data.length-row+1){
+	    int x=row;
+	    int y=0;
+	    while(y<word.length()){
+		if(data[x][col]==' ' || data[x][col]==word.charAt(y)){
+		data[x][col]=word.charAt(y);
+		y=y+1;
+		x=x+1;
+		}
+		else{
+		    return false;
+		}
+	    }
+	}
+	else{
+	    return false;
+	}
+	return true;
+
+
+
+    }
+
+
+    public boolean addWordDiagonal(String word, int row, int col){
+	if (word.length()<data.length-row+1){
+	    int x=row;
+	    int y=0;
+	    while(y<word.length()){
+		if(data[x][col]==' ' || data[x][col]==word.charAt(y)){
+		data[x][col]=word.charAt(y);
+		y=y+1;
+		x=x+1;
+		}
+		else{
+		    return false;
+		}
+	    }
+	}
+	else{
+	    return false;
+	}
+	return true;
+
+
+
+    }
+
 
     //vertical + diagonal should be implemented as well.
 
@@ -88,9 +137,9 @@ public class WordGrid{
 	else{
 	    System.out.println("FailLL");
 	}
+	    
+	    a.addWordVertical("Hi", 2, 0);
 	    System.out.println(a.toString());
-	
 	
     }
 }
-

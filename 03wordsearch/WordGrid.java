@@ -55,7 +55,7 @@ public class WordGrid{
      *or there are overlapping letters that do not match, then false is returned.
      */
     public boolean addWordHorizontal(String word,int row, int col){
-	if (word.length()<data[row].length-col){
+	if (word.length()<=data[row].length-col){
 	    int x=col;
 	    int y=0;
 	    while(y<word.length()){
@@ -76,7 +76,7 @@ public class WordGrid{
     }
 
     public boolean addWordHorizontalleft(String word,int row, int col){
-	if (word.length()<col+1){
+	if (word.length()<=col+1){
 	    int x=col;
 	    int y=0;
 	    while(y<word.length()){
@@ -100,7 +100,7 @@ public class WordGrid{
 
 
     public boolean addWordVertical(String word, int row, int col){
-	if (word.length()<data.length-row+1){
+	if (word.length()<=data.length-row+1){
 	    int x=row;
 	    int y=0;
 	    while(y<word.length()){
@@ -123,7 +123,7 @@ public class WordGrid{
 
     }
    public boolean addWordVerticalup(String word, int row, int col){
-	if (word.length()<row+1){
+	if (word.length()<=row+1){
 	    int x=row;
 	    int y=0;
 	    while(y<word.length()){
@@ -147,7 +147,7 @@ public class WordGrid{
     }
 
     public boolean addWordDiagonal(String word, int row, int col){
-	if (word.length()<data.length-row+1 || word.length()<data[row].length-col+1){
+	if (word.length()<=data.length-row+1 || word.length()<=data[row].length-col+1){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -157,6 +157,34 @@ public class WordGrid{
 		y=y+1;
 		z=z+1;
 		x=x+1;
+		}
+		else{
+		    return false;
+		}
+	    }
+	}
+	else{
+	    return false;
+	}
+	return true;
+
+
+
+    }
+   public boolean addWordDiagonalback(String word, int row, int col){
+	if (word.length()<=row+1 || word.length()<=col+1){
+	    int x=row;
+	    int z=col;
+	    int y=0;
+	    while(y<word.length()){
+		if(data[x][z]==' ' || data[x][z]==word.charAt(y)){
+		data[x][z]=word.charAt(y);
+		y=y+1;
+	        
+	       
+		z=z-1;
+		x=x-1;
+		
 		}
 		else{
 		    return false;
@@ -188,8 +216,9 @@ public class WordGrid{
 	}
 	    
 	    a.addWordDiagonal("Hi", 2, 0);
+	    a.addWordDiagonalback("YE",1,1);
 	    a.addWordVertical("Yo",0,3);
-	    if (a.addWordVerticalup("YA",1,0)){
+	    if (a.addWordVerticalup("YA",3,3)){
 		System.out.println("True");
 	    }
 	    else{

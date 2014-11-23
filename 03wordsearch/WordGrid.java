@@ -199,22 +199,73 @@ public class WordGrid{
 
 
     }
+    public boolean addWordotherDiagonal(String word, int row, int col){
+	if (word.length()<=data[row].length-col){
+	    int x=row;
+	    int z=col;
+	    int y=0;
+	    while(y<word.length()){
+		if(data[x][z]==' ' || data[x][z]==word.charAt(y)){
+		data[x][z]=word.charAt(y);
+		y=y+1;
+		z=z+1;
+		x=x-1;
+		}
+		else{
+		    return false;
+		}
+	    }
+	}
+	else{
+	    return false;
+	}
+	return true;
 
+
+
+    }
+
+    public boolean addWordotherDiagonalback(String word, int row, int col){
+	if (word.length()<=data[row].length-col+1){
+	    int x=row;
+	    int z=col;
+	    int y=0;
+	    while(y<word.length()){
+		if(data[x][z]==' ' || data[x][z]==word.charAt(y)){
+		data[x][z]=word.charAt(y);
+		y=y+1;
+		z=z-1;
+		x=x+1;
+		}
+		else{
+		    return false;
+		}
+	    }
+	}
+	else{
+	    return false;
+	}
+	return true;
+
+
+
+    }
 
     //vertical + diagonal should be implemented as well.
 
     public static void main (String []args){
 
 	WordGrid a;
-	a=new WordGrid(4,4);
+	a=new WordGrid(6,6);
 	a.clear();
-	if(a.addWordHorizontal("HII",2,0)){
+	if(a.addWordHorizontal("HI",4,4)){
 	    System.out.println("True");
 	}
 	else{
 	    System.out.println("FailLL");
 	}
-	    
+	a.addWordotherDiagonal("ye",1,4);
+	a.addWordotherDiagonalback("yy",1,5);
 	    a.addWordDiagonal("Hi", 2, 0);
 	    a.addWordDiagonalback("YE",1,1);
 	    a.addWordVertical("Yo",0,3);

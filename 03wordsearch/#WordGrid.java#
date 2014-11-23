@@ -271,11 +271,12 @@ public class WordGrid{
 	System.out.println(Bank);
 
 
-
+	Random rand = new Random();
 
 	WordGrid a;
 	a=new WordGrid(6,6);
 	a.clear();
+	/*
 	if(a.addWordHorizontal("HI",4,4)){
 	    System.out.println("True");
 	}
@@ -295,6 +296,12 @@ public class WordGrid{
 	    }
 	    a.addWordHorizontalleft("YA",0,3);
 	    System.out.println(a.toString());
+	*/
+	int x=0;
+	while (x<Bank.size()){
+	    if(rand.nextInt(3)==0){
+
+
 	
     }
 }

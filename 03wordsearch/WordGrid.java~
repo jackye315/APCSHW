@@ -122,29 +122,7 @@ public class WordGrid{
 
 
     }
-   public boolean addWordVerticalup(String word, int row, int col){
-	if (word.length()<row+1){
-	    int x=row;
-	    int y=0;
-	    while(y<word.length()){
-		if(data[x][col]==' ' || data[x][col]==word.charAt(y)){
-		data[x][col]=word.charAt(y);
-		y=y+1;
-		x=x-1;
-		}
-		else{
-		    return false;
-		}
-	    }
-	}
-	else{
-	    return false;
-	}
-	return true;
 
-
-
-    }
 
     public boolean addWordDiagonal(String word, int row, int col){
 	if (word.length()<data.length-row+1 || word.length()<data[row].length-col+1){
@@ -189,12 +167,7 @@ public class WordGrid{
 	    
 	    a.addWordDiagonal("Hi", 2, 0);
 	    a.addWordVertical("Yo",0,3);
-	    if (a.addWordVerticalup("YA",1,0)){
-		System.out.println("True");
-	    }
-	    else{
-		System.out.println("FAIL");
-	    }
+
 	    a.addWordHorizontalleft("YA",0,3);
 	    System.out.println(a.toString());
 	

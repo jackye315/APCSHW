@@ -76,7 +76,7 @@ public class WordGrid{
 	    }
 	}
 	else{
-	    return false;
+	    addWordHorizontalleft(word,row,col);
 	}
 	return true;
     }
@@ -121,7 +121,7 @@ public class WordGrid{
 	    }
 	}
 	else{
-	    return false;
+	    addWordVerticalup(word,row,col);
 	}
 	return true;
 
@@ -153,7 +153,7 @@ public class WordGrid{
     }
 
     public boolean addWordDiagonal(String word, int row, int col){
-	if (word.length()<=data.length-row+1 || word.length()<=data[row].length-col+1){
+	if (word.length()<=data.length-row+1 && word.length()<=data[row].length-col+1){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -170,7 +170,7 @@ public class WordGrid{
 	    }
 	}
 	else{
-	    return false;
+	    addWordDiagonalback(word,row,col);
 	}
 	return true;
 
@@ -178,7 +178,7 @@ public class WordGrid{
 
     }
    public boolean addWordDiagonalback(String word, int row, int col){
-	if (word.length()<=row+1 || word.length()<=col+1){
+	if (word.length()<=row+1 && word.length()<=col+1){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -206,7 +206,7 @@ public class WordGrid{
 
     }
     public boolean addWordotherDiagonal(String word, int row, int col){
-	if (word.length()<=data[row].length-col){
+	if (word.length()<=data[row].length-col && word.length()<=row+1){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -223,7 +223,7 @@ public class WordGrid{
 	    }
 	}
 	else{
-	    return false;
+	    addWordotherDiagonalback(word,row,col);
 	}
 	return true;
 
@@ -232,7 +232,7 @@ public class WordGrid{
     }
 
     public boolean addWordotherDiagonalback(String word, int row, int col){
-	if (word.length()<=data[row].length-col+1){
+	if (word.length()<=col+1 || word.length()<=row+1){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -269,13 +269,65 @@ public class WordGrid{
 	    
 	}
 	System.out.println(Bank);
-
-
-
+	System.out.println(Bank.size());
+	System.out.println(Bank.get(1));
+	Random rand = new Random();
 
 	WordGrid a;
-	a=new WordGrid(6,6);
+	a=new WordGrid(25,25);
 	a.clear();
+	int x=0;
+	while (x<Bank.size()){
+	    if(rand.nextInt(4)==0){
+		int y=0;
+		while(y<5){
+		    if(a.addWordHorizontal(Bank.get(x),rand.nextInt(20),rand.nextInt(20))){
+		 	y=y+5;
+		    }
+		    else{
+			y=y+1;
+		    }
+		}
+	    }
+	    else if(rand.nextInt(4)==1){
+		int y=0;
+		while(y<5){
+		    if(a.addWordVertical(Bank.get(x),rand.nextInt(20),rand.nextInt(20))){
+			y=y+5;
+		    }
+		    else{
+			y=y+1;
+		    }
+		}
+	    }
+	    else if(rand.nextInt(4)==2){
+		int y=0;
+		while(y<5){
+		    if(a.addWordDiagonal(Bank.get(x),rand.nextInt(20),rand.nextInt(20))){
+			y=y+5;
+		    }
+		    else{
+			y=y+1;
+		    }
+		}
+	    }
+	    else{
+		int y=0;
+		while(y<5){
+		    if(a.addWordotherDiagonal(Bank.get(x),rand.nextInt(20),rand.nextInt(20))){
+			y=y+5;
+		    }
+		    else{
+			y=y+1;
+		    }
+		}
+	    }
+	    x=x+1;
+	}
+	System.out.println(a.toString());
+
+
+	/*	
 	if(a.addWordHorizontal("HI",4,4)){
 	    System.out.println("True");
 	}
@@ -295,6 +347,9 @@ public class WordGrid{
 	    }
 	    a.addWordHorizontalleft("YA",0,3);
 	    System.out.println(a.toString());
+	*/
+
+
 	
     }
 }

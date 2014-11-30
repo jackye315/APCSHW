@@ -263,7 +263,7 @@ public class WordGrid{
 	if (row<0 || col<0){
 	    return false;
 	}
-	if (dx!=0 || dx!=1 || dx!=-1 ||dy!=0 || dy!=1 || dy!=-1){
+	if (dx!=0 && dx!=1 && dx!=-1 ||dy!=0 && dy!=1 && dy!=-1){
 	    return false;
 	}
 	if (dx==1 && dy==0 && word.length()<data[row].length-col+1){

@@ -22,7 +22,7 @@ public class Driver{
 	WordGrid a;
 	a=new WordGrid(25,25);
 	a.clear();
-	a.add("hi",4,4,1,0);
+	a.add("hi",4,4,-1,1);
 	System.out.println(a.toString());
 	/*
 	int x=0;

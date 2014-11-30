@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Driver{
 
     public static void main (String []args) throws FileNotFoundException{
-	File text = new File ("WordBank.txt");
+	/*	File text = new File ("WordBank.txt");
 	Scanner in = new Scanner (text);
 	ArrayList <String> Bank =new ArrayList<String>();
 
@@ -17,21 +17,35 @@ public class Driver{
 	System.out.println(Bank);
 	System.out.println(Bank.size());
 	System.out.println(Bank.get(1));
+	*/
+
 	Random rand = new Random();
 	int row;
 	int col;
+	boolean fill;
+	fill=true;
+
 	if (args.length<2){
 	    row=25;
 	    col=25;
+	    fill=true;
 	}
 	else{
 	    row=Integer.parseInt(args[0]);
 	    col=Integer.parseInt(args[1]);
 	}
+	if(args.length>=4){
+	    if(Integer.parseInt(args[3])==1){
+		fill=false;
+	    }
+	    else{
+		fill=true;
+	    }
+	}
 	WordGrid a;
 	a=new WordGrid(row,col);
 	a.clear();
-	a.add("hi",4,4,-1,1);
+	a.loadwordsfromfile("WordBank.txt",fill,row-1,col-1);
 	System.out.println(a.toString());
 	/*
 	int x=0;

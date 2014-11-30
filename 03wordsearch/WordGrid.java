@@ -353,7 +353,7 @@ public class WordGrid{
 	    while (y<word.length()){
 		if(data[x][z]==word.charAt(y)||data[x][z]==' '){
 			x=x+1;
-			z=z+1;
+			z=z-1;
 			y=y+1;
 		    }
 		    
@@ -380,7 +380,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==-1 && dy==-1 && word.length()<row && word.length()<col){
+	if (dx==-1 && dy==-1 && word.length()<=row && word.length()<=col){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -416,7 +416,7 @@ public class WordGrid{
        	    }
 	return false;
     }
-    public void loadwordsfromfile(String filename, boolean fillrandomletters){
+    public void loadwordsfromfile(String filename, boolean fillrandomletters, int num1,int num2)throws FileNotFoundException{
 	File text=new File(filename);
 	Scanner in =new Scanner (text);
 	ArrayList <String> Bank =new ArrayList<String>();
@@ -428,7 +428,7 @@ public class WordGrid{
 	while(x<Bank.size()){
 	    int y=0;
 	    while(y<5){
-		if(add(Bank.get(x),rand.nextInt(20,rand.nextInt(20),rand.nextInt(3)-1,rand.nextInt(3)-1))){
+		if(add(Bank.get(x),rand.nextInt(num1),rand.nextInt(num2),rand.nextInt(3)-1,rand.nextInt(3)-1)){
 			y=y+5;
 		    }
 		    else{
@@ -443,7 +443,7 @@ public class WordGrid{
 		int b=0;
 		while(b<data[a].length){
 		    if(data[a][b]==' '){
-			data[a][b]=(char)rand.nextInt(27)+97;
+			data[a][b]=(char)(rand.nextInt(27)+97);
 		    }
 		    b=b+1;
 		}

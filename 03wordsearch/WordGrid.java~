@@ -256,7 +256,10 @@ public class WordGrid{
 
 
     }
-	public boolean add(
+    public boolean checkword(String word, int row, int col, int dx, int dy){
 
-			   }
+    }
+    public boolean add(String word, int row, int col, int dx, int dy){
+
+    }
 }

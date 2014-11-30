@@ -257,7 +257,39 @@ public class WordGrid{
 
     }
     public boolean checkword(String word, int row, int col, int dx, int dy){
-
+	if (dx==0 && dy==0){
+	    return false;
+	}
+	if (row<0 || col<0){
+	    return false;
+	}
+	if (dx!=0 || dx!=1 || dx!=-1 ||dy!=0 || dy!=1 || dy!=-1){
+	    return false;
+	}
+	if (dx==1 && dy==0 && word.length()<data[row].length-col+1){
+	    return true;
+	}
+	if (dx==-1 && dy==0 && word.length()<col){
+	    return true;
+	}
+	if (dx==0 && dy==1 && word.length()<data.length-row+1){
+	    return true;
+	}
+	if (dx==0 && dy==-1 && word.length()<row){
+	    return true;
+	}
+	if (dx==1 && dy==1 && word.length()<data.length-row+1 && word.length()<data[row].length-col+1){
+	    return true;
+	}
+	if (dx==-1 && dy==1 && word.length()<data.length-row+1 && word.length()<col){
+	    return true;
+	}
+	if (dx==1 && dy==-1 && word.length()<row && word.length()<data[row].length-col+1){
+	    return true;
+	}
+	if (dx==-1 && dy==-1 && word.length()<row && word.length()<col){
+	    return true;
+	}
     }
     public boolean add(String word, int row, int col, int dx, int dy){
 

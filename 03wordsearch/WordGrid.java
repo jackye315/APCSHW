@@ -6,12 +6,13 @@ import java.util.Scanner;
 
 public class WordGrid{
     private char[][]data;
-
+    ArrayList <String> words=new ArrayList<String>();
     /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
      *@param row is the starting height of the WordGrid
      *@param col is the starting width of the WordGrid
      */
+    Random rand = new Random();
     public WordGrid(int rows,int cols){
 	data=new char[rows][cols];
     }
@@ -415,5 +416,55 @@ public class WordGrid{
        	    }
 	return false;
     }
+    public void loadwordsfromfile(String filename, boolean fillrandomletters){
+	File text=new File(filename);
+	Scanner in =new Scanner (text);
+	ArrayList <String> Bank =new ArrayList<String>();
+	while (in.hasNext()){
+	    Bank.add(in.next());
+	    
+	}
+	int x=0;
+	while(x<Bank.size()){
+	    int y=0;
+	    while(y<5){
+		if(add(Bank.get(x),rand.nextInt(20,rand.nextInt(20),rand.nextInt(3)-1,rand.nextInt(3)-1))){
+			y=y+5;
+		    }
+		    else{
+			y=y+1;
+		    }
+	    }
+	    x=x+1;
+	}
+        if(fillrandomletters){
+	    int a=0;
+	    while(a<data.length){
+		int b=0;
+		while(b<data[a].length){
+		    if(data[a][b]==' '){
+			data[a][b]=(char)rand.nextInt(27)+97;
+		    }
+		    b=b+1;
+		}
+		a=a+1;
+	    }
+	}
+	else{
+	    int a=0;
+	    while(a<data.length){
+		int b=0;
+		while(b<data[a].length){
+		    if(data[a][b]==' '){
+			data[a][b]='_';
+		    }
+		    b=b+1;
+		}
+		a=a+1;
+	    }
+	}
+    }
+
+		    
 }
 	    

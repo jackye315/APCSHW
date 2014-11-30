@@ -18,9 +18,18 @@ public class Driver{
 	System.out.println(Bank.size());
 	System.out.println(Bank.get(1));
 	Random rand = new Random();
-
+	int row;
+	int col;
+	if (args.length<2){
+	    row=25;
+	    col=25;
+	}
+	else{
+	    row=Integer.parseInt(args[0]);
+	    col=Integer.parseInt(args[1]);
+	}
 	WordGrid a;
-	a=new WordGrid(25,25);
+	a=new WordGrid(row,col);
 	a.clear();
 	a.add("hi",4,4,-1,1);
 	System.out.println(a.toString());

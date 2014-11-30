@@ -17,7 +17,7 @@ public class WordGrid{
     }
 
     /**Set all values in the WordGrid to spaces ' '*/
-    private void clear(){
+    public void clear(){
 	int x=0;	
 	while(x<data.length){
 	    int y=0;
@@ -267,31 +267,153 @@ public class WordGrid{
 	    return false;
 	}
 	if (dx==1 && dy==0 && word.length()<data[row].length-col+1){
+	    int x=col;
+	    int y=0;
+	    while (y<word.length()){
+		if(data[row][x]==word.charAt(y)||data[row][x]==' '){
+			x=x+1;
+			y=y+1;
+		    }
+		    
+	        else{
+		   return false;
+		}
+	    }
 	    return true;
 	}
 	if (dx==-1 && dy==0 && word.length()<col){
+	    int x=col;
+	    int y=0;
+	    while (y<word.length()){
+		if(data[row][x]==word.charAt(y)||data[row][x]==' '){
+			x=x-1;
+			y=y+1;
+		    }
+		    
+	        else{
+		   return false;
+		}
+	    }
 	    return true;
+       
 	}
 	if (dx==0 && dy==1 && word.length()<data.length-row+1){
+	    int x=row;
+	    int y=0;
+	    while (x<word.length()){
+		if(data[x][col]==word.charAt(y)||data[x][col]==' '){
+			x=x+1;
+			y=y+1;
+		    }
+		    
+	        else{
+		   return false;
+		}
+	    }
 	    return true;
+
 	}
 	if (dx==0 && dy==-1 && word.length()<row){
+	    int x=row;
+	    int y=0;
+	    while (y<word.length()){
+		if(data[x][col]==word.charAt(y)||data[x][col]==' '){
+			x=x-1;
+			y=y+1;
+		    }
+		    
+	        else{
+		   return false;
+		}
+	    }
 	    return true;
 	}
 	if (dx==1 && dy==1 && word.length()<data.length-row+1 && word.length()<data[row].length-col+1){
+	    int x=row;
+	    int z=col;
+	    int y=0;
+	    while (y<word.length()){
+		if(data[x][z]==word.charAt(y)||data[x][z]==' '){
+			x=x+1;
+			z=z+1;
+			y=y+1;
+		    }
+		    
+	        else{
+		   return false;
+		}
+	    }
 	    return true;
 	}
 	if (dx==-1 && dy==1 && word.length()<data.length-row+1 && word.length()<col){
+	    int x=row;
+	    int z=col;
+	    int y=0;
+	    while (y<word.length()){
+		if(data[x][z]==word.charAt(y)||data[x][z]==' '){
+			x=x+1;
+			z=z+1;
+			y=y+1;
+		    }
+		    
+	        else{
+		   return false;
+		}
+	    }
 	    return true;
 	}
 	if (dx==1 && dy==-1 && word.length()<row && word.length()<data[row].length-col+1){
+	    int x=row;
+	    int z=col;
+	    int y=0;
+	    while (y<word.length()){
+		if(data[x][z]==word.charAt(y)||data[x][z]==' '){
+			x=x-1;
+			z=z+1;
+			y=y+1;
+		    }
+		    
+	        else{
+		   return false;
+		}
+	    }
 	    return true;
 	}
 	if (dx==-1 && dy==-1 && word.length()<row && word.length()<col){
+	    int x=row;
+	    int z=col;
+	    int y=0;
+	    while (y<word.length()){
+		if(data[x][z]==word.charAt(y)||data[x][z]==' '){
+			x=x-1;
+			z=z-1;
+			y=y+1;
+		    }
+		    
+	        else{
+		   return false;
+		}
+	    }
 	    return true;
 	}
+	return false;
     }
     public boolean add(String word, int row, int col, int dx, int dy){
-
+	if (checkword(word,row,col,dx,dy)){
+		int x=row;
+		int z=col;
+		int y=0;
+		while(y<word.length()){
+		    data[x][z]=word.charAt(y);
+		    x=x+dy;
+		    z=z+dx;
+		    y=y+1;
+		}
+	    }
+	else{
+	        return false;
+       	    }
+	return false;
     }
 }
+	    

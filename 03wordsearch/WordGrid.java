@@ -450,7 +450,7 @@ public class WordGrid{
 		int b=0;
 		while(b<data[a].length){
 		    if(data[a][b]==' '){
-			data[a][b]=(char)(rand.nextInt(27)+97);
+			data[a][b]=(char)(rand.nextInt(26)+97);
 		    }
 		    b=b+1;
 		}

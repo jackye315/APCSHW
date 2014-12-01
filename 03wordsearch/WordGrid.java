@@ -433,8 +433,6 @@ public class WordGrid{
 	while(x<Bank.size()){
 	    int y=0;
 	    while(y<5){
-		//words.add(Bank.get(x));
-		
 		if(checkword(Bank.get(x),rand.nextInt(num1),rand.nextInt(num2),rand.nextInt(3)-1,rand.nextInt(3)-1)){
 		    add(Bank.get(x),rand.nextInt(num1),rand.nextInt(num2),rand.nextInt(3)-1,rand.nextInt(3)-1);
 		    words.add(Bank.get(x));
@@ -473,9 +471,11 @@ public class WordGrid{
 	    }
 	}
     }
+    /*
     public void addwordstolist(ArrayList<String> allwords,String word){
 	allwords.add(word);
     }
+    */
     public String wordsinPuzzle(){
 
         int x=0;

@@ -53,10 +53,10 @@ public class Driver{
 	a.clear();
 	a.setSeed(2);
 	a.loadwordsfromfile("WordBank.txt",fill,row-1,col-1);
-	System.out.println(a.toString());
-	System.out.println("Try to Find these words");
-	System.out.println(a.wordsinPuzzle());
 
+	System.out.println("Try to Find these words:");
+	System.out.println(a.wordsinPuzzle());
+	System.out.println(a);
 
 	/*
 	int x=0;

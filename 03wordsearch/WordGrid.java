@@ -276,7 +276,7 @@ public class WordGrid{
 	if (dx!=0 && dx!=1 && dx!=-1 ||dy!=0 && dy!=1 && dy!=-1){
 	    return false;
 	}
-	if (dx==1 && dy==0 && word.length()<data[row].length-col+1){
+	if (dx==1 && dy==0 && word.length()<=data[row].length-col+1){
 	    int x=col;
 	    int y=0;
 	    while (y<word.length()){
@@ -291,7 +291,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==-1 && dy==0 && word.length()<col){
+	if (dx==-1 && dy==0 && word.length()<=col){
 	    int x=col;
 	    int y=0;
 	    while (y<word.length()){
@@ -307,7 +307,7 @@ public class WordGrid{
 	    return true;
        
 	}
-	if (dx==0 && dy==1 && word.length()<data.length-row+1){
+	if (dx==0 && dy==1 && word.length()<=data.length-row+1){
 	    int x=row;
 	    int y=0;
 	    while (x<word.length()){
@@ -323,7 +323,7 @@ public class WordGrid{
 	    return true;
 
 	}
-	if (dx==0 && dy==-1 && word.length()<row){
+	if (dx==0 && dy==-1 && word.length()<=row){
 	    int x=row;
 	    int y=0;
 	    while (y<word.length()){
@@ -338,7 +338,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==1 && dy==1 && word.length()<data.length-row+1 && word.length()<data[row].length-col+1){
+	if (dx==1 && dy==1 && word.length()<=data.length-row+1 && word.length()<=data[row].length-col+1){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -355,7 +355,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==-1 && dy==1 && word.length()<data.length-row+1 && word.length()<col){
+	if (dx==-1 && dy==1 && word.length()<=data.length-row+1 && word.length()<=col){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -372,7 +372,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==1 && dy==-1 && word.length()<row && word.length()<data[row].length-col+1){
+	if (dx==1 && dy==-1 && word.length()<=row && word.length()<=data[row].length-col+1){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -436,11 +436,15 @@ public class WordGrid{
 	int x=0;
 	while(x<Bank.size()){
 	    int y=0;
-	    while(y<5){
-		if(checkword(Bank.get(x),rand.nextInt(num1),rand.nextInt(num2),rand.nextInt(3)-1,rand.nextInt(3)-1)){
-		    add(Bank.get(x),rand.nextInt(num1),rand.nextInt(num2),rand.nextInt(3)-1,rand.nextInt(3)-1);
+	    int r1=rand.nextInt(num1);
+	    int r2=rand.nextInt(num2);
+	    int r3=rand.nextInt(3)-1;
+	    int r4=rand.nextInt(3)-1;
+	    while(y<7){
+		if(checkword(Bank.get(x),r1,r2,r3,r4)){
+		    add(Bank.get(x),r1,r2,r3,r4);
 		    words.add(Bank.get(x));
-		    y=y+5;
+		    y=y+7;
 			
 		}
 		

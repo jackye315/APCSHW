@@ -440,11 +440,11 @@ public class WordGrid{
 	    int r2=rand.nextInt(num2);
 	    int r3=rand.nextInt(3)-1;
 	    int r4=rand.nextInt(3)-1;
-	    while(y<7){
+	    while(y<20){
 		if(checkword(Bank.get(x),r1,r2,r3,r4)){
 		    add(Bank.get(x),r1,r2,r3,r4);
 		    words.add(Bank.get(x));
-		    y=y+7;
+		    y=y+20;
 			
 		}
 		

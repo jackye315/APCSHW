@@ -20,16 +20,18 @@ public class Driver{
 	System.out.println(Bank.get(1));
 	*/
 
-	Random rand = new Random();
+	long r;
+	r=0;
 	int row;
 	int col;
 	boolean fill;
 	fill=true;
-
+	Random rand = new Random(r);
 	if (args.length<2){
 	    row=25;
 	    col=25;
 	    fill=true;
+	    r=5;
 	}
 	else{
 	    row=Integer.parseInt(args[0]);
@@ -42,10 +44,12 @@ public class Driver{
 	    else{
 		fill=true;
 	    }
+	    r=Integer.parseInt(args[2]);
 	}
 	WordGrid a;
 	a=new WordGrid(row,col);
 	a.clear();
+	a.setseed(r);
 	a.loadwordsfromfile("WordBank.txt",fill,row-1,col-1);
 	System.out.println(a.toString());
 	System.out.println(a.wordsinPuzzle());

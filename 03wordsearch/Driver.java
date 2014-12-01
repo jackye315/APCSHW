@@ -20,36 +20,38 @@ public class Driver{
 	System.out.println(Bank.get(1));
 	*/
 
-	long r;
-	r=0;
+	long seed;
+	seed=0;
 	int row;
 	int col;
 	boolean fill;
 	fill=true;
-	Random rand = new Random(r);
+
 	if (args.length<2){
 	    row=25;
 	    col=25;
 	    fill=true;
-	    r=5;
+	    seed=0;
 	}
 	else{
 	    row=Integer.parseInt(args[0]);
 	    col=Integer.parseInt(args[1]);
 	}
 	if(args.length>=4){
+	    seed=Integer.parseInt(args[2]);
 	    if(Integer.parseInt(args[3])==1){
 		fill=false;
 	    }
 	    else{
 		fill=true;
 	    }
-	    r=Integer.parseInt(args[2]);
+
 	}
+
 	WordGrid a;
-	a=new WordGrid(row,col);
+	a=new WordGrid(row,col,seed);
 	a.clear();
-	a.setseed(r);
+	a.setSeed(2);
 	a.loadwordsfromfile("WordBank.txt",fill,row-1,col-1);
 	System.out.println(a.toString());
 	System.out.println(a.wordsinPuzzle());

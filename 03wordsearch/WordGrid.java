@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class WordGrid{
     private char[][]data;
     public long r;
+    Random rand=new Random();
+   
     ArrayList<String> words=new ArrayList<String>();
 
     /**Initialize the grid to the size specified and fill all of the positions
@@ -14,12 +16,14 @@ public class WordGrid{
      *@param row is the starting height of the WordGrid
      *@param col is the starting width of the WordGrid
      */
-    public void setseed(long seed){
+    public void setSeed(long seed){
 	r=seed;
+
     }
-    Random rand = new Random(r);
-    public WordGrid(int rows,int cols){
+    //Random rand = new Random(3);
+    public WordGrid(int rows,int cols,long seed){
 	data=new char[rows][cols];
+	this.rand=new Random(seed);
     }
 
     /**Set all values in the WordGrid to spaces ' '*/

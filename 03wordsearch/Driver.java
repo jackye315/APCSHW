@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class Driver{
 
     public static void main (String []args) throws FileNotFoundException{
-	/*	File text = new File ("WordBank.txt");
+	/*
+	File text = new File ("WordBank.txt");
 	Scanner in = new Scanner (text);
 	ArrayList <String> Bank =new ArrayList<String>();
 
@@ -47,6 +48,9 @@ public class Driver{
 	a.clear();
 	a.loadwordsfromfile("WordBank.txt",fill,row-1,col-1);
 	System.out.println(a.toString());
+	System.out.println(a.wordsinPuzzle());
+
+
 	/*
 	int x=0;
 	while (x<Bank.size()){

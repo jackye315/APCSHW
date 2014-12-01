@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public class WordGrid{
     private char[][]data;
-    ArrayList <String> words=new ArrayList<String>();
+    ArrayList<String> words=new ArrayList<String>();
+
     /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
      *@param row is the starting height of the WordGrid
@@ -428,12 +429,15 @@ public class WordGrid{
 	while(x<Bank.size()){
 	    int y=0;
 	    while(y<5){
-		if(add(Bank.get(x),rand.nextInt(num1),rand.nextInt(num2),rand.nextInt(3)-1,rand.nextInt(3)-1)){
-			y=y+5;
-		    }
-		    else{
-			y=y+1;
-		    }
+		words.add(Bank.get(x));
+		/*
+		if(add(Bank.get(x),rand.nextInt(num1),rand.nextInt(num2),rand.nextInt(3)-1,rand.nextInt(3)-1)&& words.add("S")){
+		    //words.add("s");
+		    y=y+5;
+			
+		}
+		*/
+	       	y=y+4;
 	    }
 	    x=x+1;
 	}
@@ -464,7 +468,20 @@ public class WordGrid{
 	    }
 	}
     }
-
+    public void addwordstolist(ArrayList<String> allwords,String word){
+	allwords.add(word);
+    }
+    public String wordsinPuzzle(){
+	words.add("hi");
+	words.add("SS");
+        int x=0;
+	String ans="";
+	while(x<words.size()){
+	    ans=ans+words.get(x)+" ";
+	    x=x+1;
+	}
+	return ans;
+    }
 		    
 }
 	    

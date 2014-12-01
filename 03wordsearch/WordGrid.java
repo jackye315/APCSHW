@@ -338,7 +338,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==1 && dy==1 && word.length()<=data.length-row+1 && word.length()<=data[row].length-col+1){
+	if (dx==1 && dy==1 && word.length()<data.length-row+1 && word.length()<data[row].length-col+1){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -489,7 +489,13 @@ public class WordGrid{
         int x=0;
 	String ans="";
 	while(x<words.size()){
-	    ans=ans+words.get(x)+"              ";
+	    int y=0;
+	    while(y<5 && x<words.size()){
+		ans=ans+words.get(x)+"          ";
+		y=y+1;
+		x=x+1;
+	    }
+	    ans="  "+ans+"\n"+"    ";
 	    x=x+1;
 	}
 	return ans;

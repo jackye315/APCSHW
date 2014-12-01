@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class WordGrid{
     private char[][]data;
-    public long r;
+    // public long r;
     Random rand=new Random();
    
     ArrayList<String> words=new ArrayList<String>();
@@ -16,10 +16,10 @@ public class WordGrid{
      *@param row is the starting height of the WordGrid
      *@param col is the starting width of the WordGrid
      */
-    public void setSeed(long seed){
-	r=seed;
+    // public void setSeed(long seed){
+    //	r=seed;
 
-    }
+    // }
     //Random rand = new Random(3);
     public WordGrid(int rows,int cols,long seed){
 	data=new char[rows][cols];
@@ -276,7 +276,7 @@ public class WordGrid{
 	if (dx!=0 && dx!=1 && dx!=-1 ||dy!=0 && dy!=1 && dy!=-1){
 	    return false;
 	}
-	if (dx==1 && dy==0 && word.length()<=data[row].length-col+1){
+	if (dx==1 && dy==0 && word.length()<data[row].length-col+1){
 	    int x=col;
 	    int y=0;
 	    while (y<word.length()){
@@ -291,7 +291,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==-1 && dy==0 && word.length()<=col){
+	if (dx==-1 && dy==0 && word.length()<col){
 	    int x=col;
 	    int y=0;
 	    while (y<word.length()){
@@ -307,7 +307,7 @@ public class WordGrid{
 	    return true;
        
 	}
-	if (dx==0 && dy==1 && word.length()<=data.length-row+1){
+	if (dx==0 && dy==1 && word.length()<data.length-row+1){
 	    int x=row;
 	    int y=0;
 	    while (x<word.length()){
@@ -323,7 +323,7 @@ public class WordGrid{
 	    return true;
 
 	}
-	if (dx==0 && dy==-1 && word.length()<=row){
+	if (dx==0 && dy==-1 && word.length()<row){
 	    int x=row;
 	    int y=0;
 	    while (y<word.length()){
@@ -355,7 +355,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==-1 && dy==1 && word.length()<=data.length-row+1 && word.length()<=col){
+	if (dx==-1 && dy==1 && word.length()<data.length-row+1 && word.length()<col){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -372,7 +372,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==1 && dy==-1 && word.length()<=row && word.length()<=data[row].length-col+1){
+	if (dx==1 && dy==-1 && word.length()<row && word.length()<data[row].length-col+1){
 	    int x=row;
 	    int z=col;
 	    int y=0;
@@ -389,7 +389,7 @@ public class WordGrid{
 	    }
 	    return true;
 	}
-	if (dx==-1 && dy==-1 && word.length()<=row && word.length()<=col){
+	if (dx==-1 && dy==-1 && word.length()<row && word.length()<=col){
 	    int x=row;
 	    int z=col;
 	    int y=0;

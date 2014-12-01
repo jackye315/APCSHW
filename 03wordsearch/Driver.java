@@ -51,7 +51,7 @@ public class Driver{
 	WordGrid a;
 	a=new WordGrid(row,col,seed);
 	a.clear();
-	a.setSeed(2);
+	//a.setSeed(2);
 	a.loadwordsfromfile("WordBank.txt",fill,row-1,col-1);
 
 	System.out.println("Try to Find these words:");

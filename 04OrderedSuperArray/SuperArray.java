@@ -1,15 +1,15 @@
 public class SuperArray{
-    public Object [] data;
-    public Object []newdata;
-    public Object []testdata;
+    public String [] data;
+    public String []newdata;
+    public String []testdata;
     public int numArray;
 
     public SuperArray(){
-	data=new Object[10];
+	data=new String[10];
 	numArray=10;
     }
     public SuperArray(int x){
-	data=new Object[x];
+	data=new String[x];
 	numArray=x;
     }
     public String toString(){
@@ -23,7 +23,7 @@ public class SuperArray{
 	return ans;
     }
 
-     public void add(Object e){
+     public void add(String e){
 	 int y=0;
 	 if (data[data.length-1]!=null){
 
@@ -46,19 +46,19 @@ public class SuperArray{
 	     }
 	 }
 	  }
-	 //data=new Object[numArray+1];
+	 //data=new String[numArray+1];
 
 
 
     }
-    public void add (int index, Object o){
+    public void add (int index, String o){
 	int x=index;
 	int y=0;
-	newdata=new Object [data.length];
+	newdata=new String [data.length];
 	if (data[data.length-1]!=null){
 	 int z=data.length+1;
 	 resize(z);
-	 newdata=new Object [data.length];
+	 newdata=new String [data.length];
         newdata[index]=o;
 		while (y<index){
 		newdata[y]=data[y];
@@ -96,7 +96,7 @@ public class SuperArray{
     }
     public void resize (int newCapacity){
 	if (newCapacity<data.length){
-	    newdata=new Object [newCapacity];
+	    newdata=new String [newCapacity];
 	    int x=0;
 	    while (x<newdata.length){
 		newdata[x]=data[x];
@@ -105,7 +105,7 @@ public class SuperArray{
 	    data=newdata;
 	}
 	else{
-  	    newdata=new Object [newCapacity];
+  	    newdata=new String [newCapacity];
   	    int x=0;
 	    while (x<data.length){
 	        newdata[x]=data[x];
@@ -122,7 +122,7 @@ public class SuperArray{
 	    x=x+1;
 	}
     }
-    public Object get(int index){
+    public String get(int index){
 	if (index>data.length){
 	    throw new IndexOutOfBoundsException();
 	   
@@ -132,28 +132,28 @@ public class SuperArray{
 	
 
     }
-    public void set1 (int index, Object e){
+    public void set1 (int index, String e){
     data[index]=e;
     }
-    public Object set2(int index, Object o){
+    public String set2(int index, String o){
 	if (index>data.length){
 	     throw new IndexOutOfBoundsException();
 	}
 
-        Object x=data[index];
+        String x=data[index];
 	data[index]=o;
 	return "Being Replaced: "+x;
 	
 
     }
-    public Object remove(int index){
+    public String remove(int index){
 	if (index>data.length){
             throw new IndexOutOfBoundsException();
 	}
        
             int x=index;
 	    int y=0;
-	    newdata=new Object [data.length-1];
+	    newdata=new String [data.length-1];
 	    testdata=data;
 	    while (y<index){
 		newdata[y]=data[y];

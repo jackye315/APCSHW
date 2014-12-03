@@ -21,7 +21,8 @@ public class OrderedSuperArray extends SuperArray{
 	}
     }
     public void set(int index, String o){
-
+	super.set1(index,o);
+	super.insertionsort();
     }
 
 
@@ -39,6 +40,8 @@ public class OrderedSuperArray extends SuperArray{
 	a.add("YO");
 	a.add("a");
 	a.add("A");
+	System.out.println(a);
+	a.set(4,"za");
 	System.out.println(a);
 
 

@@ -167,4 +167,26 @@ public class SuperArray{
 	    return testdata[index];
 	
     }
+    public void insertionsort(){
+	int x=0;
+	while(x<data.length-1){
+	    if(data[x].compareTo(data[x+1])>0){
+		String a=new String();
+		a=data[x+1];
+		//remove(x+1);
+		int y=0;
+		while(y<x){
+		    if(data[y].compareTo(a)>0){
+			add(y,a);
+			y=y+x;
+		    }
+		    y=y+1;
+		}
+
+	    }
+	    x=x+1;
+	}
+    }
+
+
 }

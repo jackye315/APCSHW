@@ -21,8 +21,8 @@ public class OrderedSuperArray extends SuperArray{
 	}
     }
     public void set(int index, String o){
-	super.set1(index,o);
-	super.insertionsort();
+	super.remove(index);
+	add(o);
     }
 
 
@@ -36,12 +36,25 @@ public class OrderedSuperArray extends SuperArray{
        	a.add("hi");
 	a.add("hi");
 	a.add("hi");
-	a.add("hi");
+	a.add("za");
+	a.add("za");
 	a.add("YO");
+	a.add("za");
+	a.add("za");
+	a.add("za");
 	a.add("a");
-	a.add("A");
+	a.add("za");
+	a.add("JI");
+	a.add("za");
+	a.add("JI");
+	a.add("za");
+	a.add("za");
+	a.add("ks");
+
 	System.out.println(a);
-	a.set(4,"za");
+	//a.set(1,"za");
+	//a.remove(1);
+	a.set(1,"bi");
 	System.out.println(a);
 
 

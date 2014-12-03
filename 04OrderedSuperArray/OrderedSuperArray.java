@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class OrderedSuperArray extends SuperArray{
 
     public OrderedSuperArray(int x){
@@ -41,21 +42,27 @@ public class OrderedSuperArray extends SuperArray{
 	a.add("YO");
 	a.add("za");
 	a.add("za");
-	a.add("za");
 	a.add("a");
-	a.add("za");
 	a.add("JI");
-	a.add("za");
 	a.add("JI");
-	a.add("za");
-	a.add("za");
 	a.add("ks");
-
+	a.add(2,"li");
+	String []test;
+	test=new String[a.size()];
+	int x=0;
+	while (x<a.size()){
+	    test[x]=a.get(x);
+	    x=x+1;
+	}
 	System.out.println(a);
+	a.insertionsort();
+	Arrays.sort(test);
+	System.out.println(a);
+	System.out.println(Arrays.toString(test));
 	//a.set(1,"za");
 	//a.remove(1);
-	a.set(1,"bi");
-	System.out.println(a);
+	
+	//System.out.println(a);
 
 
 

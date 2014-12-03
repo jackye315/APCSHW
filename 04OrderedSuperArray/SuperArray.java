@@ -178,7 +178,7 @@ public class SuperArray{
 		while(y<x){
 		    if(data[y].compareTo(a)>0){
 			add(y,a);
-			y=y+x;
+			return;
 		    }
 		    y=y+1;
 		}

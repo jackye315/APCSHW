@@ -186,7 +186,16 @@ public class SuperArray{
 	    x=x+1;
 	}
     }
-
+    public int find(String target){//Linear Search
+	int x=0;
+	while(x<size()){
+	    if(get(x).equals(target)){
+		return x;
+	    }
+	    x=x+1;
+	}
+	return x;
+    }
 
 }
 

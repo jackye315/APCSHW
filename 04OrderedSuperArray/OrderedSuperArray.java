@@ -34,7 +34,15 @@ public class OrderedSuperArray extends SuperArray{
         }
 }
 
+    public int find(String target){
+	int x=size();
+	while(x<1){
+	    if(get(size.()/2).compareTo(target)>=0){
+		resize(size()/2);
 
+
+
+}
 
     public static void main (String []args){
 	OrderedSuperArray a;

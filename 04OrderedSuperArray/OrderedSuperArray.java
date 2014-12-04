@@ -25,7 +25,14 @@ public class OrderedSuperArray extends SuperArray{
 	super.remove(index);
 	add(o);
     }
-
+    public void badInsertionSort(){
+        while( this.size() > 0){ 
+            add(this.remove(0));
+        }
+        while(size() > 0){
+            this.add(remove(0));
+        }
+}
 
 
 
@@ -35,18 +42,19 @@ public class OrderedSuperArray extends SuperArray{
 	System.out.println(a.size());
 	System.out.println(a);
        	a.add("hi");
-	a.add("hi");
-	a.add("hi");
-	a.add("za");
+	//a.add("hi");
+	//a.add("hi");
+	//a.add("za");
 	a.add("za");
 	a.add("YO");
-	a.add("za");
-	a.add("za");
+	//a.add("za");
+	//a.add("za");
 	a.add("a");
-	a.add("JI");
+	//a.add("JI");
 	a.add("JI");
 	a.add("ks");
 	a.add(2,"li");
+	/*
 	String []test;
 	test=new String[a.size()];
 	int x=0;
@@ -54,11 +62,19 @@ public class OrderedSuperArray extends SuperArray{
 	    test[x]=a.get(x);
 	    x=x+1;
 	}
+	*/
 	System.out.println(a);
-	a.insertionsort();
-	Arrays.sort(test);
+	long startTime = System.currentTimeMillis();
+	//a.badInsertionSort();
+	a.insertionSort();
+	long stopTime = System.currentTimeMillis();
+	long runTime = stopTime - startTime;
+	System.out.println("Run time: " + runTime);
+	
+      
+	//Arrays.sort(test);
 	System.out.println(a);
-	System.out.println(Arrays.toString(test));
+	//System.out.println(Arrays.toString(test));
 	//a.set(1,"za");
 	//a.remove(1);
 	
@@ -75,3 +91,9 @@ public class OrderedSuperArray extends SuperArray{
 
 
 }
+/*Classwork/Homework
+1. In order to test thet wo, make a String Array, then use Arrayssort on the new Array. Test the outcomes to a.insertionsort().
+2. Ok, I just ran the badInsertionSort(), and it took so much time i had to end the program.
+I hope mine is faster...
+3. For this, I used the timing methods to see how fast each method ran.
+*/

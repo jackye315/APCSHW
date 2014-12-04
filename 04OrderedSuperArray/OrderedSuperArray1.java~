@@ -1,0 +1,91 @@
+public class OrderedSuperArray extends SuperArray{
+
+    public void add(String o){
+        int index = size();
+        while( index >0 && get(index-1).compareTo(o) > 0 ){
+            index--;
+        }
+        super.add(index, o);
+    }
+
+    public void add(int index, String o){
+        add(o);
+    }
+
+    public String set(int index, String o){
+        //this is the lazy way, but a good start.
+        //This commented out code makes 2 linear passes:
+        /*
+          String old = remove(index); //remove is linear...
+          add(o);//add is linear...
+          return old;
+
+        */
+
+
+        //replacing that code with this code, means you only do 1 linear pass:
+        String old = data[index];
+        if(size() == 0){ //Included so that you cannot try it on an empty list.
+            throw new IndexOutOfBoundsException("" + index);
+        }
+
+        //decide if you need to shift left or right, you do EITHER, or none.
+        if(o.compareTo(data[index]) > 0){ //move it to the right
+            //at least one item left && the next item is smaller
+            while(index < size() - 1 && o.compareTo(get(index + 1)) > 0 ){
+                //shift the element
+                data[index] = data[index+1];
+                index++;
+            }
+        }else if(o.compareTo(data[index]) < 0){//move it to the left
+            while(index > 0 && o.compareTo(get(index - 1)) < 0 ){
+                data[index] = data[index-1];
+                index--;
+            }
+        }
+        data[index] = o;
+        return old;
+    }
+    //Writing the code to save 1 linear pass may not be worth it...
+    //in fact in this case it probably isn't! This method is challenging for several reasons.
+
+
+public static void main (String []args){
+	OrderedSuperArray a;
+	a=new OrderedSuperArray(6);
+	System.out.println(a.size());
+	System.out.println(a);
+       	a.add("hi");
+	//a.add("hi");
+	//a.add("hi");
+	//a.add("za");
+	a.add("za");
+	a.add("YO");
+	//a.add("za");
+	//a.add("za");
+	a.add("a");
+	//a.add("JI");
+	a.add("JI");
+	a.add("ks");
+	a.add(2,"li");
+	/*
+	String []test;
+	test=new String[a.size()];
+	int x=0;
+	while (x<a.size()){
+	    test[x]=a.get(x);
+	    x=x+1;
+	}
+	*/
+	System.out.println(a);
+	long startTime = System.currentTimeMillis();
+	//a.badInsertionSort();
+	a.insertionSort();
+	long stopTime = System.currentTimeMillis();
+	long runTime = stopTime - startTime;
+	System.out.println("Run time: " + runTime);
+	
+      
+	//Arrays.sort(test);
+	System.out.println(a);
+}

@@ -196,6 +196,26 @@ public class SuperArray{
 	}
 	return x;
     }
+public void selectionsort(){
+	int x=0;
+	int smallest=0;
+	String temp="";
+	while (x<size()){
+	    int y=x;
+	    while (y<size()-1){
+		if(get(y).compareTo(get(y+1))>0){
+		    smallest=y+1;
+		    
+		}
+		y=y+1;
+	    }
+	    temp=get(x);
+	    set(x,get(smallest));
+	    set(smallest,temp);
+	    x=x+1;
+	}
 
+
+    }
 }
 

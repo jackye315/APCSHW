@@ -36,9 +36,18 @@ public class OrderedSuperArray extends SuperArray{
 
     public int find(String target){
 	int x=size();
-	while(x<1){
-	    if(get(size.()/2).compareTo(target)>=0){
-		resize(size()/2);
+	int y=0;
+	while(y<size()){
+	    if(get(x/2).compareTo(target)>=0){
+		resize(x/2);
+		x=x/2;
+	    }
+	    if(get(x/2).compareTo(target)<0){
+		x=x+x/2;
+	    }
+	    y=y+1;
+	}
+	    return x;
 
 
 

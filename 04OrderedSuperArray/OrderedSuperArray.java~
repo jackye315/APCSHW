@@ -83,7 +83,8 @@ public class OrderedSuperArray extends SuperArray{
 	System.out.println(a);
 	long startTime = System.currentTimeMillis();
 	//a.badInsertionSort();
-	a.insertionSort();
+	//a.insertionSort();
+	a.selectionsort();
 	long stopTime = System.currentTimeMillis();
 	long runTime = stopTime - startTime;
 	System.out.println("Run time: " + runTime);

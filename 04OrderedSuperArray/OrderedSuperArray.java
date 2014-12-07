@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Arrays;
 public class OrderedSuperArray extends SuperArray{
 
@@ -6,7 +7,7 @@ public class OrderedSuperArray extends SuperArray{
 	numArray=x;
     }
 
-    public void add(String o){
+    public void add1(String o){
 	int x=0;
 	while(x<data.length){
 	    if(data[x]==null){
@@ -21,6 +22,7 @@ public class OrderedSuperArray extends SuperArray{
 	    x=x+1;
 	}
     }
+    //Changed add to add1 so I could call add from SuperArray
     public void set(int index, String o){
 	super.remove(index);
 	add(o);
@@ -55,9 +57,14 @@ public class OrderedSuperArray extends SuperArray{
 
     public static void main (String []args){
 	OrderedSuperArray a;
+	Random r = new Random(1);
 	a=new OrderedSuperArray(6);
 	System.out.println(a.size());
 	System.out.println(a);
+	for(int i = 0; i <5 ; i++){
+	    a.add(""+(char)(r.nextInt(26)+97));
+	}
+	/*
        	a.add("hi");
 	//a.add("hi");
 	//a.add("hi");
@@ -71,7 +78,7 @@ public class OrderedSuperArray extends SuperArray{
 	a.add("JI");
 	a.add("ks");
 	a.add(2,"li");
-	/*
+	
 	String []test;
 	test=new String[a.size()];
 	int x=0;
@@ -79,24 +86,24 @@ public class OrderedSuperArray extends SuperArray{
 	    test[x]=a.get(x);
 	    x=x+1;
 	}
-	*/
-	System.out.println(a);
+       */
+	System.out.println(a.toString());
 	long startTime = System.currentTimeMillis();
 	//a.badInsertionSort();
-	//a.insertionSort();
-	a.selectionsort();
+	a.insertionSort();
+	//a.selectionsort();
 	long stopTime = System.currentTimeMillis();
 	long runTime = stopTime - startTime;
 	System.out.println("Run time: " + runTime);
 	
       
 	//Arrays.sort(test);
-	System.out.println(a);
+	//System.out.println(a);
 	//System.out.println(Arrays.toString(test));
 	//a.set(1,"za");
 	//a.remove(1);
 	
-	//System.out.println(a);
+	System.out.println(a);
 
 
 

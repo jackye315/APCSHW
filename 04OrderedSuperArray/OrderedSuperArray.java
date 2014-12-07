@@ -61,8 +61,15 @@ public class OrderedSuperArray extends SuperArray{
 	a=new OrderedSuperArray(6);
 	System.out.println(a.size());
 	System.out.println(a);
-	for(int i = 0; i <1000 ; i++){
+	for(int i = 0; i <70000 ; i++){
 	    a.add(""+(char)(r.nextInt(26)+97));
+	}
+	String []test;
+	test=new String[a.size()];
+	int x=0;
+	while (x<a.size()){
+	    test[x]=a.get(x);
+	    x=x+1;
 	}
 	/*
        	a.add("hi");
@@ -78,32 +85,41 @@ public class OrderedSuperArray extends SuperArray{
 	a.add("JI");
 	a.add("ks");
 	a.add(2,"li");
+	*/
 	
-	String []test;
-	test=new String[a.size()];
-	int x=0;
-	while (x<a.size()){
-	    test[x]=a.get(x);
-	    x=x+1;
-	}
-       */
-	System.out.println(a.toString());
+	
+	//System.out.println(a);
 	long startTime = System.currentTimeMillis();
-	//a.badInsertionSort();
 	a.insertionSort();
-	//a.selectionsort();
 	long stopTime = System.currentTimeMillis();
 	long runTime = stopTime - startTime;
-	System.out.println("Run time: " + runTime);
+	System.out.println("Run time for insertionSort: " + runTime);
+	//System.out.println(a);
 	
-      
-	//Arrays.sort(test);
+
+	OrderedSuperArray b;
+	b=new OrderedSuperArray(6);
+	for(int i = 0; i <70000 ; i++){
+	    b.add(""+(char)(r.nextInt(26)+97));
+	}
+	//System.out.println(a);
+	long startTime1 = System.currentTimeMillis();
+	b.selectionsort();
+	long stopTime1 = System.currentTimeMillis();
+	long runTime1 = stopTime1 - startTime1;
+	System.out.println("Run time for selectionsort: " + runTime1);
+
+	
+	
+	long startTime2 = System.currentTimeMillis();
+	Arrays.sort(test);
+	long stopTime2 = System.currentTimeMillis();
+	long runTime2 = stopTime2 - startTime2;
+	System.out.println("Run time for Arrays.sort: " + runTime2);
 	//System.out.println(a);
 	//System.out.println(Arrays.toString(test));
-	//a.set(1,"za");
-	//a.remove(1);
-	
-	System.out.println(a);
+	//wow my functions are so muchs lower than the built in...
+
 
 
 

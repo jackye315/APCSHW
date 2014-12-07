@@ -196,24 +196,23 @@ public class SuperArray{
 	}
 	return x;
     }
-public void selectionsort(){
+    public void selectionsort(){
 	int x=0;
-	int smallest=0;
 	String temp="";
 	while (x<size()){
-	    int y=x;
-	    while (y<size()-1){
-		if(get(y).compareTo(get(y+1))>0){
-		    smallest=y+1;
-		    
+	    int smallest=x;
+	    int y=x+1;
+	    while (y<size()){
+		if(get(smallest).compareTo(get(y))>0){
+		    smallest=y;		    
 		}
 		y=y+1;
 	    }
-	    
+	    if(smallest!=x){
 	        temp=get(x);
 		set1(x,get(smallest));
 		set1(smallest,temp);
-	    
+	    }
 	    x=x+1;
 	}
 

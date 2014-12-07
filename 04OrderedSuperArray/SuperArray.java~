@@ -209,9 +209,11 @@ public void selectionsort(){
 		}
 		y=y+1;
 	    }
-	    temp=get(x);
-	    set(x,get(smallest));
-	    set(smallest,temp);
+	    
+	        temp=get(x);
+		set1(x,get(smallest));
+		set1(smallest,temp);
+	    
 	    x=x+1;
 	}
 

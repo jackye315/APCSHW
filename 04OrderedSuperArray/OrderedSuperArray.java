@@ -61,7 +61,7 @@ public class OrderedSuperArray extends SuperArray{
 	a=new OrderedSuperArray(6);
 	System.out.println(a.size());
 	System.out.println(a);
-	for(int i = 0; i <5 ; i++){
+	for(int i = 0; i <1000 ; i++){
 	    a.add(""+(char)(r.nextInt(26)+97));
 	}
 	/*

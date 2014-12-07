@@ -167,25 +167,21 @@ public class SuperArray{
 	    return testdata[index];
 	
     }
-    public void insertionSort(){
-	int x=0;
-	while(x<data.length-1){
-	    if(data[x].compareTo(data[x+1])>0){
-		String a=new String();
-		a=data[x+1];
-		//remove(x+1);
-		int y=x+1;
-		while(data[y-1].compareTo(a)>0){
-			set1(y,data[y-1]);
-			y=y-1;
-		    }
-		    set1(y,a);
-		
-
+  public void insertionSort() {
+      int x=1;
+      while (x < size()) {
+	    String a = get(x);
+	    int y=x;
+	    while (y>0 && a.compareTo(get(y-1)) < 0) {
+		set1(y,get(y-1));
+		y=y-1;
+	       
 	    }
+	    set1(y,a);
 	    x=x+1;
 	}
     }
+
     public int find(String target){//Linear Search
 	int x=0;
 	while(x<size()){

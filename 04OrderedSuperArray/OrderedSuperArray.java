@@ -61,7 +61,7 @@ public class OrderedSuperArray extends SuperArray{
 	a=new OrderedSuperArray(6);
 	System.out.println(a.size());
 	System.out.println(a);
-	for(int i = 0; i <70000 ; i++){
+	for(int i = 0; i <50 ; i++){
 	    a.add(""+(char)(r.nextInt(26)+97));
 	}
 	String []test;
@@ -87,8 +87,8 @@ public class OrderedSuperArray extends SuperArray{
 	a.add(2,"li");
 	*/
 	
-	
-	//System.out.println(a);
+	a.bubblesort();
+	System.out.println(a);
 	long startTime = System.currentTimeMillis();
 	a.insertionSort();
 	long stopTime = System.currentTimeMillis();
@@ -96,7 +96,7 @@ public class OrderedSuperArray extends SuperArray{
 	System.out.println("Run time for insertionSort: " + runTime);
 	//System.out.println(a);
 	
-
+	
 	OrderedSuperArray b;
 	b=new OrderedSuperArray(6);
 	for(int i = 0; i <70000 ; i++){
@@ -122,7 +122,7 @@ public class OrderedSuperArray extends SuperArray{
 
 
 
-
+	
 
 
     }

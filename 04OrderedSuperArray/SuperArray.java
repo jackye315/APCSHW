@@ -214,5 +214,27 @@ public class SuperArray{
 
 
     }
+
+
+    public void bubblesort(){
+	int x=1;
+	int s=size();
+	String temp="";
+	while (x<s){
+	    int y=0;
+	    while(y<s-1){
+		if(get(y).compareTo(get(y+1))>0){
+		    temp=get(y);
+		    set1(y,get(y+1));
+		    set1(y+1,temp);
+		}
+		y=y+1;
+	    }
+	    s=s-1;
+	}
+    
+
+
+    }
 }
 

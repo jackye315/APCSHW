@@ -1,14 +1,19 @@
+import java.util.Random;
+import java.util.Arrays;
 public class Sorts{
 
-
-    public void bubblesort(int[] c){
+    public Sorts(int num){
+	int [] c;
+	c=new int [num];
+    }
+    public static void bubblesort(int[] c){
 	int x=1;
 	int s=c.length;
-	String temp="";
+	int temp=0;
 	while (x<s){
 	    int y=0;
 	    while(y<s-1){
-		if(c[y].compareTo(c[y+1])>0){
+		if(c[y]>c[y+1]){
 		    temp=c[y];
 		    c[y]=c[y+1];
 		    c[y+1]=temp;
@@ -21,14 +26,14 @@ public class Sorts{
 
 
 
-    public void selectionsort(int[]c){
+    public static void selectionsort(int[]c){
 	int x=0;
-	String temp="";
+	int temp=0;
 	while (x<c.length){
 	    int smallest=x;
 	    int y=x+1;
 	    while (y<c.length){
-		if(c[smallest].compareTo(c[y])>0){
+		if(c[smallest]>c[y]){
 		    smallest=y;
 		}
 		y=y+1;
@@ -44,12 +49,12 @@ public class Sorts{
     }
 
 
-    public void insertionSort(int[]c) {
+    public static void insertionSort(int[]c) {
 	int x=1;
 	while (x < c.length) {
-	    String a = c[x];
+	    int a = c[x];
 	    int y=x;
-	    while (y>0 && a.compareTo(c[y-1]) < 0) {
+	    while (y>0 && a<c[y-1]) {
 		c[y]=c[y-1];
 		y=y-1;
 	    }
@@ -58,5 +63,30 @@ public class Sorts{
 	    x=x+1;
 	}
     }
+    public String toString(int [] c){
+	int x=0;
+        String ans="[";
+	while (x<c.length){
+	    ans=ans+c[x]+" ";
+	    x=x+1;
+	}
+	ans=ans+"]";
+	return ans;
+    }
+
+    public static void main (String [] args){ 
+	Sorts a =new Sorts(10);
+	Random r = new Random(1);
+	int []c;
+	c=new int [10];
+	for(int i = 0; i <10 ; i++){
+	    c[i]=(r.nextInt(26)+97);
+	}
+	System.out.println(a.toString(c));
+	a.bubblesort(c);
+	System.out.println(a.toString(c));
+    }
+
+
 
 }

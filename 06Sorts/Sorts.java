@@ -6,6 +6,14 @@ public class Sorts{
 	int [] c;
 	c=new int [num];
     }
+
+    public Static String name(){
+	return "Ye,Jack";
+    }
+    public Static int period(){
+	return 6;
+    }
+
     public static void bubblesort(int[] c){
 	int x=1;
 	int s=c.length;
@@ -63,6 +71,11 @@ public class Sorts{
 	    x=x+1;
 	}
     }
+
+    public static void radix(int [] c){
+	ArrayList <ArrayList<Integer>> bucket =new ArrayList<ArrayList<Integer>>();
+
+    }
     public String toString(int [] c){
 	int x=0;
         String ans="[";
@@ -73,6 +86,7 @@ public class Sorts{
 	ans=ans+"]";
 	return ans;
     }
+
 
     public static void main (String [] args){ 
 	Sorts a =new Sorts(10);
